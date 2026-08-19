@@ -1,0 +1,322 @@
+  :root{
+    --soil:#241A13;
+    --soil-2:#332318;
+    --yellow:#F0A93B;
+    --rust:#C25A2E;
+    --steel:#8A8375;
+    --paper:#EEE6D3;
+    --cream:#F8F3E7;
+    --line:rgba(238,230,211,0.16);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--soil);
+    color:var(--cream);
+    font-family:'Sarabun', sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Kanit', sans-serif;
+    font-weight:800;
+    letter-spacing:-0.01em;
+  }
+  .num{ font-family:'Kanit', sans-serif; font-weight:700; }
+  a{color:inherit; text-decoration:none;}
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 24px; }
+
+  /* ---------- TOP BAR ---------- */
+  .topbar{
+    position:sticky; top:0; z-index:50;
+    background:rgba(36,26,19,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:14px; padding-bottom:14px;
+  }
+  .brand{ font-family:'Kanit'; font-weight:800; font-size:1.05rem; letter-spacing:0.02em; }
+  .brand span{ color:var(--yellow); }
+  .topbar-cta{
+    display:flex; gap:10px;
+  }
+  .btn{
+    font-family:'Kanit'; font-weight:600; font-size:0.85rem;
+    padding:9px 16px; border-radius:3px;
+    border:1px solid var(--line);
+    white-space:nowrap;
+  }
+  .btn-solid{ background:var(--yellow); color:var(--soil); border-color:var(--yellow); }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:76px 0 40px;
+    background:
+      radial-gradient(ellipse at 15% 0%, rgba(240,169,59,0.14), transparent 55%),
+      var(--soil);
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'Kanit'; font-weight:600; font-size:0.78rem;
+    color:var(--yellow); letter-spacing:0.12em; text-transform:uppercase;
+    border:1px solid rgba(240,169,59,0.4); padding:6px 12px; border-radius:2px;
+    margin-bottom:22px;
+  }
+  .eyebrow::before{ content:''; width:7px; height:7px; background:var(--yellow); border-radius:50%; }
+  .hero h1{
+    font-size:clamp(2.3rem, 6vw, 4rem);
+    line-height:1.08;
+    color:var(--cream);
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--yellow);
+    -webkit-text-stroke:0;
+  }
+  .hero p.lead{
+    margin-top:22px;
+    max-width:560px;
+    font-size:1.08rem;
+    color:var(--paper);
+    opacity:0.88;
+  }
+  .hero-cta{
+    margin-top:34px;
+    display:flex; gap:14px; flex-wrap:wrap;
+  }
+  .btn-lg{
+    font-family:'Kanit'; font-weight:700; font-size:1rem;
+    padding:15px 28px; border-radius:3px;
+  }
+  .btn-lg.solid{ background:var(--yellow); color:var(--soil); }
+  .btn-lg.outline{ border:1px solid var(--line); color:var(--cream); }
+
+  /* ---------- SPEC PLATE ---------- */
+  .spec-plate{
+    margin-top:56px;
+    border:1px solid var(--line);
+    background:var(--soil-2);
+    border-radius:4px;
+    padding:0;
+    display:flex;
+    overflow:hidden;
+  }
+  .spec-cell{
+    flex:1; padding:20px 22px; border-right:1px solid var(--line);
+  }
+  .spec-cell:last-child{ border-right:none; }
+  .spec-cell .label{
+    font-family:'Kanit'; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--steel); margin-bottom:6px;
+  }
+  .spec-cell .value{ font-family:'Kanit'; font-weight:700; font-size:1.35rem; color:var(--cream); }
+  .spec-cell .value small{ font-size:0.9rem; font-weight:500; color:var(--steel); }
+
+  /* ---------- DEPTH GAUGE DIVIDER (signature element) ---------- */
+  .gauge{
+    position:relative;
+    padding:64px 0 44px;
+    background:var(--soil-2);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .gauge-label{
+    font-family:'Kanit'; font-weight:600; font-size:0.8rem; letter-spacing:0.08em;
+    text-transform:uppercase; color:var(--steel); text-align:center; margin-bottom:28px;
+  }
+  .gauge-track{
+    position:relative;
+    height:64px;
+    display:flex;
+    align-items:flex-end;
+  }
+  .gauge-line{
+    position:absolute; left:0; right:0; bottom:20px; height:2px; background:var(--line);
+  }
+  .gauge-ticks{
+    position:relative; display:flex; justify-content:space-between; width:100%;
+  }
+  .tick{ position:relative; display:flex; flex-direction:column; align-items:center; flex:1; }
+  .tick .mark{ width:1px; height:14px; background:var(--steel); margin-bottom:6px; }
+  .tick.major .mark{ height:24px; width:2px; background:var(--yellow); }
+  .tick .t-label{ font-family:'Kanit'; font-size:0.72rem; color:var(--steel); }
+  .tick.major .t-label{ color:var(--yellow); font-weight:700; }
+  .tick.range .mark{ background:var(--rust); }
+  .gauge-range-bar{
+    position:absolute; bottom:19px; height:4px; background:var(--rust);
+    left:15%; right:8%; border-radius:2px; opacity:0.85;
+  }
+  .gauge-caption{
+    text-align:center; margin-top:26px; font-size:0.95rem; color:var(--paper); opacity:0.75;
+  }
+
+  /* ---------- SERVICES ---------- */
+  .section{ padding:70px 0; }
+  .section-head{ margin-bottom:38px; max-width:640px; }
+  .section-head .kicker{
+    font-family:'Kanit'; font-weight:600; font-size:0.78rem; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--yellow); margin-bottom:10px; display:block;
+  }
+  .section-head h2{ font-size:clamp(1.6rem, 3.4vw, 2.3rem); color:var(--cream); }
+  .services-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line); border-radius:4px; overflow:hidden;
+  }
+  .service-card{
+    background:var(--soil); padding:28px 24px; min-height:150px;
+    display:flex; flex-direction:column; justify-content:space-between;
+  }
+  .service-card .no{ font-family:'Kanit'; font-weight:700; color:var(--rust); font-size:0.85rem; }
+  .service-card h3{ font-size:1.15rem; margin-top:14px; color:var(--cream); }
+  .service-card p{ font-size:0.88rem; color:var(--steel); margin-top:6px; }
+
+  /* ---------- FLEET ---------- */
+  .fleet{ background:var(--soil-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .fleet-row{
+    display:flex; align-items:center; gap:0;
+    border-bottom:1px solid var(--line);
+    padding:22px 0;
+  }
+  .fleet-row:last-child{ border-bottom:none; }
+  .fleet-ton{
+    font-family:'Kanit'; font-weight:800; font-size:2.1rem; color:var(--yellow);
+    width:130px; flex-shrink:0;
+  }
+  .fleet-ton small{ font-size:0.95rem; font-weight:500; color:var(--steel); display:block; }
+  .fleet-desc{ color:var(--paper); font-size:0.95rem; opacity:0.85; }
+  .fleet-bar-wrap{ flex:1; padding:0 24px; display:none; }
+
+  /* ---------- GALLERY ---------- */
+  .gallery{ background:var(--soil-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .gallery-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:14px;
+    margin-top:8px;
+  }
+  .gallery-item{
+    position:relative; border-radius:4px; overflow:hidden;
+    aspect-ratio:4/3; border:1px solid var(--line);
+    background:var(--soil);
+  }
+  .gallery-item img{
+    width:100%; height:100%; object-fit:cover; display:block;
+    transition:transform 0.5s ease;
+  }
+  .gallery-item:hover img{ transform:scale(1.06); }
+  .gallery-item .cap{
+    position:absolute; left:0; right:0; bottom:0;
+    padding:10px 12px 8px;
+    background:linear-gradient(to top, rgba(20,14,10,0.88), transparent);
+    font-family:'Kanit'; font-weight:600; font-size:0.78rem; color:var(--cream);
+  }
+  .gallery-item.tall{ grid-row:span 2; aspect-ratio:auto; }
+  @media (max-width:760px){
+    .gallery-grid{ grid-template-columns:repeat(2, 1fr); }
+    .gallery-item.tall{ grid-row:span 1; aspect-ratio:4/3; }
+  }
+
+  /* ---------- COVERAGE ---------- */
+  .coverage-province{ margin-bottom:34px; }
+  .coverage-province h3{
+    font-family:'Kanit'; font-weight:700; font-size:1.05rem; color:var(--yellow);
+    margin-bottom:16px; display:flex; align-items:center; gap:10px;
+  }
+  .coverage-province h3::after{ content:''; flex:1; height:1px; background:var(--line); }
+  .district-list{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:10px 18px;
+  }
+  .district{
+    font-size:0.9rem; color:var(--paper); opacity:0.85;
+    padding:8px 0; border-bottom:1px dashed var(--line);
+    display:flex; align-items:center; gap:8px;
+    transition:opacity 0.15s ease, color 0.15s ease;
+  }
+  .district::before{ content:'✓'; color:var(--rust); font-size:0.8rem; font-weight:700; }
+  a.district:hover{ opacity:1; color:var(--yellow); }
+
+  /* ---------- BREADCRUMB (area pages) ---------- */
+  .breadcrumb{
+    font-family:'Kanit'; font-size:0.82rem; color:var(--steel);
+    padding:16px 0 0;
+  }
+  .breadcrumb a{ color:var(--steel); }
+  .breadcrumb a:hover{ color:var(--yellow); }
+  .breadcrumb span{ color:var(--paper); }
+
+  /* ---------- AREA HERO (smaller than home hero) ---------- */
+  .area-hero{ padding:20px 0 40px; }
+  .area-hero h1{ font-size:clamp(2rem, 5.5vw, 3.2rem); }
+
+  /* ---------- NEARBY LIST ---------- */
+  .nearby-list{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+  .nearby-list a{
+    font-family:'Kanit'; font-size:0.85rem; font-weight:500;
+    border:1px solid var(--line); padding:8px 14px; border-radius:3px;
+    color:var(--paper);
+  }
+  .nearby-list a:hover{ border-color:var(--yellow); color:var(--yellow); }
+
+  /* ---------- CONTACT ---------- */
+  .contact{
+    padding:70px 0 90px;
+    background:
+      radial-gradient(ellipse at 85% 100%, rgba(194,90,46,0.16), transparent 55%),
+      var(--soil);
+  }
+  .contact-box{
+    border:1px solid var(--line); border-radius:6px; background:var(--soil-2);
+    padding:44px 40px;
+    display:flex; justify-content:space-between; align-items:center; gap:30px; flex-wrap:wrap;
+  }
+  .contact-box h2{ font-size:clamp(1.5rem, 3vw, 2rem); color:var(--cream); max-width:420px; }
+  .contact-links{ display:flex; flex-direction:column; gap:14px; }
+  .contact-link{
+    font-family:'Kanit'; font-weight:700; font-size:1.15rem;
+    display:flex; align-items:center; gap:12px;
+  }
+  .contact-link .tag{
+    font-size:0.68rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--soil); background:var(--yellow); padding:3px 8px; border-radius:2px; width:52px; text-align:center;
+  }
+  .contact-link.line .tag{ background:#06C755; color:#fff; }
+
+  /* ---------- TREAD FOOTER ---------- */
+  .tread{
+    height:16px;
+    background-image: repeating-linear-gradient(115deg, var(--rust) 0 10px, transparent 10px 22px);
+    opacity:0.55;
+  }
+  footer{
+    padding:24px 0; text-align:center; font-size:0.8rem; color:var(--steel);
+  }
+
+  /* ---------- FLOATING BUTTONS ---------- */
+  .floaters{
+    position:fixed; right:18px; bottom:18px; z-index:60;
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .float-btn{
+    width:54px; height:54px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Kanit'; font-weight:700; font-size:0.7rem;
+    box-shadow:0 6px 18px rgba(0,0,0,0.4);
+  }
+  .float-btn.call{ background:var(--yellow); color:var(--soil); }
+  .float-btn.line{ background:#06C755; color:#fff; }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:760px){
+    .spec-plate{ flex-direction:column; }
+    .spec-cell{ border-right:none; border-bottom:1px solid var(--line); }
+    .spec-cell:last-child{ border-bottom:none; }
+    .services-grid{ grid-template-columns:1fr; }
+    .district-list{ grid-template-columns:repeat(2, 1fr); }
+    .contact-box{ flex-direction:column; align-items:flex-start; }
+    .gauge-ticks{ overflow-x:auto; }
+    .fleet-ton{ width:96px; font-size:1.6rem; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+  }
